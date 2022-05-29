@@ -1,0 +1,15 @@
+.vscode/
+
+**/node_modules/
+
+docker-compose.yaml
+
+old/
+
+quescode-frontend/
+
+questcode-backend-scm/
+
+questcode-backend-user/
+
+02-2-secrets.yaml

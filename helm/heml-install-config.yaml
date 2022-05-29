@@ -1,0 +1,35 @@
+# TILLER
+
+# tiller era necessário em versões anteriores do helm
+
+# a partir da versão v3, o helm não necesssita mais do tiller configurado no cluster
+
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tiller
+  namespace: kube-system
+---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: allresources
+rules:
+- apiGroups: ["*"]
+  resources: ["*"]
+  verbs: ["*"]
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: tiller
+subjects:
+- kind: ServiceAccount
+  namespace: kube-system
+  name: tiller
+  apiGroup: ""
+roleRef:
+  kind: ClusterRole
+  name: allresources
+  apiGroup: rbac.authorization.k8s.ioeml-install-config.md
